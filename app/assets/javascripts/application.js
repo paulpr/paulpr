@@ -13,5 +13,6 @@
 //= require_tree .
 
 var React = require('react');
+var DashboardData = require('./dashboard/DashboardData');
 
-React.render(<h1>Test</h1>, document.getElementById('app'));
+React.render(<DashboardData />, document.getElementById('app'));
