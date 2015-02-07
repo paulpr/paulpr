@@ -11,5 +11,5 @@
 /log/*
 !/log/.keep
 /tmp
-
 .powenv
+/node_modules

@@ -4,6 +4,7 @@ ruby '2.2.0'
 #ruby-gemset=paulpr
 
 gem 'autoprefixer-rails'
+gem 'browserify-rails'
 gem 'devise'
 gem 'flutie'
 gem 'foundation-rails'

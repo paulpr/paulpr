@@ -1,0 +1,28 @@
+{
+  "name": "paulpr",
+  "version": "1.0.0",
+  "description": "Paul Request",
+  "main": "index.js",
+  "scripts": {
+    "build": "browserify index.js -t 6to5ify --im > app/bundle/build.js",
+    "start": "",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/paulpr/paulpr.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/paulpr/paulpr/issues"
+  },
+  "homepage": "https://github.com/paulpr/paulpr",
+  "dependencies": {
+    "6to5": "^3.4.1",
+    "6to5ify": "^4.1.0",
+    "browserify": "^8.1.3",
+    "browserify-incremental": "^1.4.0",
+    "react": "^0.13.0-beta.1"
+  }
+}

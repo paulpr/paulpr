@@ -39,5 +39,7 @@ module Paulpr
       g.javascripts false
       g.stylesheets false
     end
+
+    config.browserify_rails.commandline_options = ["-t 6to5ify", "--im"]
   end
 end
