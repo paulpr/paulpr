@@ -13,16 +13,50 @@
 
 
 // Layout
- 	body {
- 		background: #FFF;
- 		color: #2C1B17;
- 		font-family: 'Signika', sans-serif;
- 		font-size: 1em;
- 		line-height: 1.4;
- 	}
+body {
+	background: #FFF;
+	color: #2C1B17;
+	font-family: 'Signika', sans-serif;
+	font-size: 1em;
+	line-height: 1.4;
+}
+a { text-decoration: none; }
+strong { font-weight: 700; }
+img { height: auto; width: 100%; }
 
- 	header {
- 		height: 40px;
- 		margin: 32px 0;
- 		width: 100%;
- 	}
+header {
+	height: 40px;
+	margin: 32px 0;
+	width: 100%;
+	a.logo-paul-request {
+		color: #2D1C17;
+		font-size: 2em;
+		font-weight: 700;
+		line-height: 40px;
+		&:hover { color: #CC4A4F; }
+	}
+	a.github-login {
+		border: 2px solid #2D1C17;
+		border-radius: 4px;
+		color: #2D1C17;
+		float: right;
+		height: 38px;
+		line-height: 38px;
+		padding: 0 20px;
+		&:hover {
+			border: 2px solid #CC4A4F;
+			color: #CC4A4F;
+		}
+	}
+}
+
+section.highlight {
+	margin: 120px 0;
+	h1 {
+		font-size: 2.6em;
+		font-weight: 300;
+		line-height: 1.2;
+		margin: 40px 0 20px 0;
+	}
+	p { color: #CC4A4F; }
+}
