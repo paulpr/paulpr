@@ -11,11 +11,12 @@
 // about supported directives.
 //
 
-window.Chart = require('chart.js')
+window.Chart = require('chart.js');
 
 var React = require('react');
 var DashboardData = require('./dashboard/DashboardData');
 
-
-
-React.render(<DashboardData />, document.getElementById('app'));
+var app = document.getElementById('app');
+if (app) {
+	React.render(<DashboardData />, document.getElementById('app'));
+}
