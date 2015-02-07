@@ -16,3 +16,4 @@
 .ruby-version
 
 .DS_Store
+/public/build.js
