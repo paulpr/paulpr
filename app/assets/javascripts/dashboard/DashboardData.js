@@ -1,5 +1,4 @@
 var React = require('react');
-var ReactD3 = require('react-d3');
 
 class DashboardData extends React.Component {
 	render() {
