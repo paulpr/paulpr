@@ -1,0 +1,170 @@
+<div class="markdown-body">
+    <h1>CSS</h1>
+
+<p>Welcome to the GitHub CSS Styleguide—it's pretty rad. Before continuing, you should have a general understanding for <strong>specificity</strong>, the <a href="http://sass-lang.com"><strong>SCSS</strong></a> syntax, and <a href="https://github.com/kneath/kss"><strong>KSS</strong></a> documentation.</p>
+
+<h2>Coding style</h2>
+
+<h3>Spacing</h3>
+
+<ul class="task-list">
+<li>Use soft-tabs with a two space indent. Spaces are the only way to guarantee code renders the same in any person's environment.</li>
+<li>Put spaces after <code>:</code> in property declarations.</li>
+<li>Put spaces before <code>{</code> in rule declarations.</li>
+<li>Put line breaks between rulesets.</li>
+<li>When grouping selectors, keep individual selectors to a single line.</li>
+<li>Place closing braces of declaration blocks on a new line.</li>
+<li>Each declaration should appear on its own line for more accurate error reporting.</li>
+</ul>
+
+<h3>Formatting</h3>
+
+<ul class="task-list">
+<li>Use hex color codes <code>#000</code> unless using <code>rgba()</code>.</li>
+<li>Use <code>//</code> for comment blocks (instead of <code>/* */</code>).</li>
+<li>Avoid specifying units for zero values, e.g., <code>margin: 0;</code> instead of <code>margin: 0px;</code>.</li>
+<li>Strive to limit use of shorthand declarations to instances where you must explicitly set all the available values.</li>
+</ul>
+
+<h3>Misc</h3>
+
+<ul class="task-list">
+<li>As a rule of thumb, avoid unnecessary nesting in SCSS. At most, aim for three levels. If you cannot help it, step back and rethink your overall strategy (either the specificity needed, or the layout of the nesting).</li>
+<li>Document styles with <a href="https://github.com/kneath/kss">KSS</a>.</li>
+</ul>
+
+<h3>Examples</h3>
+
+<p>Here are some good examples that apply the above guidelines:</p>
+
+<div class="highlight highlight-scss"><pre><span class="pl-c">// Example of good basic formatting practices</span>
+<span class="pl-e">.styleguide-format</span> {
+  <span class="pl-mp"><span class="pl-s3">color</span></span>: <span class="pl-c1">#000</span>;
+  <span class="pl-mp"><span class="pl-s3">background-color</span></span>: <span class="pl-s3">rgba</span>(<span class="pl-c1">0, 0, 0</span>,<span class="pl-c1"> .5</span>);
+  <span class="pl-mp"><span class="pl-s3">border</span></span>: <span class="pl-c1">1</span><span class="pl-k">px</span> <span class="pl-sc">solid</span> <span class="pl-c1">#0f0</span>;
+}
+
+<span class="pl-c">// Example of individual selectors getting their own lines (for error reporting)</span>
+<span class="pl-e">.multiple</span>,
+<span class="pl-e">.classes</span>,
+<span class="pl-e">.get-new-lines</span> {
+  <span class="pl-mp"><span class="pl-s3">display</span></span>: <span class="pl-sc">block</span>;
+}
+
+<span class="pl-c">// Avoid unnecessary shorthand declarations</span>
+<span class="pl-e">.not-so-good</span> {
+  <span class="pl-mp"><span class="pl-s3">margin</span></span>: <span class="pl-c1">0 0 20</span><span class="pl-k">px</span>;
+}
+<span class="pl-e">.good</span> {
+  <span class="pl-mp"><span class="pl-s3">margin-bottom</span></span>: <span class="pl-c1">20</span><span class="pl-k">px</span>;
+}</pre></div>
+
+<h2>File organization</h2>
+
+<p>In general, the CSS file organization should follow something like this:</p>
+
+<pre><code>styles
+├── components
+│   ├── comments.scss
+│   └── listings.scss
+├── globals
+│   ├── browser_helpers.scss
+│   ├── responsive_helpers.scss
+│   └── variables.scss
+├── plugins
+│   ├── jquery.fancybox-1.3.4.css
+│   └── reset.scss
+├── sections
+│   ├── issues.scss
+│   └── profile.scss
+└── shared
+    ├── forms.scss
+    └── markdown.scss
+</code></pre>
+
+<h3>Multiple bundles</h3>
+
+<p>Variations on this structure include the multi-bundle Rails approach, as seen in the <code>github/github</code> repo:</p>
+
+<pre><code>stylesheets
+├── github
+│   ├── base.scss
+│   ├── layout.scss
+│   └── buttons.scss
+├── github2
+│   ├── about.scss
+│   └── blog.scss
+└── mobile
+    ├── _variables.scss
+    └── base.scss
+</code></pre>
+
+<p>Here, we have two desktop bundles to support IE9's maximum selector limit per CSS file, as well as a dedicated mobile bundle to go with our separate mobile views.</p>
+
+<h3>Primer</h3>
+
+<p>Much of our core CSS comes from Primer, our internal (closed source) CSS library. It's a separate repository that we include via Bower to import common and global "GitHubby" styles like our Markdown type, grid system, buttons, and more.</p>
+
+<h3>Including (S)CSS files</h3>
+
+<p>Use <a href="https://github.com/sstephenson/sprockets">Sprockets</a> to <strong>require</strong> files. However, you should explicitly <strong>import</strong> any scss that does not generate styles (<code>globals/</code>) in the particular SCSS file you'll be needing it's helpers in.  Here's a good example:</p>
+
+<div class="highlight highlight-scss"><pre><span class="pl-c">//= require_tree ./plugins</span>
+<span class="pl-c">//= require my_awesome_styles</span>
+
+<span class="pl-k">@import</span> "<span class="pl-v">../globals/basic</span>";
+
+<span class="pl-e">.rule</span> { ... }</pre></div>
+
+<p>This is also how Primer's styles are to be included, should you need them.</p>
+
+<h2>Pixels vs. ems</h2>
+
+<p>Use <code>px</code> for <code>font-size</code>, because it offers absolute control over text. Additionally, unit-less <code>line-height</code> is preferred because it does not inherit a percentage value of its parent element, but instead is based on a multiplier of the <code>font-size</code>.</p>
+
+<h2>Class naming conventions</h2>
+
+<p>Never reference <code>js-</code> prefixed class names from CSS files. <code>js-</code> are used exclusively from JS files.</p>
+
+<p>Use the <code>is-</code> prefix for state rules that are shared between CSS and JS.</p>
+
+<h2>Specificity (classes vs. ids)</h2>
+
+<p>Elements that occur <strong>exactly once</strong> inside a page should use IDs, otherwise, use classes. When in doubt, use a class name.</p>
+
+<ul class="task-list">
+<li>
+<strong>Good</strong> candidates for ids: header, footer, modal popups.</li>
+<li>
+<strong>Bad</strong> candidates for ids: navigation, item listings, item view pages (ex: issue view).</li>
+</ul>
+
+<p>When styling a component, start with an element + class namespace (prefer class names over ids),  prefer direct descendant selectors by default, and use as little specificity as possible. Here is a good example:</p>
+
+<div class="highlight highlight-html"><pre>&lt;<span class="pl-ent">ul</span> <span class="pl-e">class</span>=<span class="pl-s1"><span class="pl-pds">"</span>category-list<span class="pl-pds">"</span></span>&gt;
+  &lt;<span class="pl-ent">li</span> <span class="pl-e">class</span>=<span class="pl-s1"><span class="pl-pds">"</span>item<span class="pl-pds">"</span></span>&gt;Category 1&lt;/<span class="pl-ent">li</span>&gt;
+  &lt;<span class="pl-ent">li</span> <span class="pl-e">class</span>=<span class="pl-s1"><span class="pl-pds">"</span>item<span class="pl-pds">"</span></span>&gt;Category 2&lt;/<span class="pl-ent">li</span>&gt;
+  &lt;<span class="pl-ent">li</span> <span class="pl-e">class</span>=<span class="pl-s1"><span class="pl-pds">"</span>item<span class="pl-pds">"</span></span>&gt;Category 3&lt;/<span class="pl-ent">li</span>&gt;
+&lt;/<span class="pl-ent">ul</span>&gt;</pre></div>
+
+<div class="highlight highlight-scss"><pre><span class="pl-e">.category-list</span> {<span class="pl-c"> // element + class namespace</span>
+
+<span class="pl-c">  // Direct descendant selector &gt; for list items</span>
+  &gt; <span class="pl-ent">li</span> {
+    <span class="pl-mp"><span class="pl-s3">list-style-type</span></span>: <span class="pl-sc">disc</span>;
+  }
+
+<span class="pl-c">  // Minimal specificity for all links</span>
+  <span class="pl-ent">a</span> {
+    <span class="pl-mp"><span class="pl-s3">color</span></span>: <span class="pl-c1">#f00</span>;
+  }
+}</pre></div>
+
+<h3>CSS Specificity guidelines</h3>
+
+<ul class="task-list">
+<li>If you must use an id selector (<code>#selector</code>) make sure that you have no more than <em>one</em> in your rule declaration. A rule like <code>#header .search #quicksearch { ... }</code> is considered harmful.</li>
+<li>When modifying an existing element for a specific use, try to use specific class names. Instead of <code>.listings-layout.bigger</code> use rules like <code>.listings-layout.listings-bigger</code>. Think about <code>ack/grep</code>ing your code in the future.</li>
+<li>The class names <code>disabled</code>, <code>mousedown</code>, <code>danger</code>, <code>hover</code>, <code>selected</code>, and <code>active</code> should <em>always</em> be namespaced by an element (<code>button.selected</code> is a good example).</li>
+</ul>
+  </div>
