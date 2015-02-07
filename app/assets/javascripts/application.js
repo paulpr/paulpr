@@ -12,6 +12,9 @@
 //
 //= require_tree .
 
+// Loads all Semantic javascripts
+//= require semantic-ui
+
 var React = require('react');
 var DashboardData = require('./dashboard/DashboardData');
 
