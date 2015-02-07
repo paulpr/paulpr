@@ -12,7 +12,11 @@
 //
 //= require_tree .
 
+window.Chart = require('chart.js')
+
 var React = require('react');
 var DashboardData = require('./dashboard/DashboardData');
+
+
 
 React.render(<DashboardData />, document.getElementById('app'));
