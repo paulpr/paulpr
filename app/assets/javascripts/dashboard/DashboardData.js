@@ -28,12 +28,13 @@ var data = {
 };
 
 
-class DashboardData extends React.Component {
+export default class DashboardData extends React.Component {
 	render() {
 		return (
 			<div>
 			  <div>DashboardData</div>
 			  <div><PullRequestTimeline/></div>
+			  <div><PullRequestCounter count={0}/></div>
       </div>
 		);
 	}
@@ -42,11 +43,37 @@ class DashboardData extends React.Component {
 class PullRequestTimeline extends React.Component{
   render()
   {
-
     return (
         <div><Line  data={data} width="600" height="250"/></div>
         )
   }
 }
 
-export default DashboardData;
+class PullRequestCounter extends React.Component{
+  constructor(props) {
+    super(props);
+    this.state = {count: props.count};
+  }
+
+  componentDidMount(){
+    console.log(this);
+    var loop = ()=> {
+      setTimeout(()=> {
+            this.setState({count: this.state.count + 1});
+            loop();
+          }, Math.round(Math.random() * (5000)) + 200
+      );
+    };
+
+    loop();
+  }
+
+  render()
+  {
+    return (
+      <div>
+      Paul has caught {this.state.count}
+      </div>
+    )
+  }
+}
