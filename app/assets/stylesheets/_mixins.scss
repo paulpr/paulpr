@@ -1,0 +1,51 @@
+/*
+* Travel Door County
+* Copyright Ace Eight of Spades 2014
+* traveldoor.co
+*/
+
+
+// ----------
+// Utilities
+
+
+// Background Color with Opacity
+@mixin background-color($color, $opacity) {
+    background-color: lighten($color, 50%);
+    background-color: rgba($color, $opacity);
+}
+
+// Box Sizing
+@mixin box-sizing($box) {
+  // content-box, border-box, inherit
+  -webkit-box-sizing: $box;
+  -moz-box-sizing: $box;
+  -ms-box-sizing: $box;
+  box-sizing: $box;
+}
+
+// Box Shadow
+// 0 4px 2px -2px #000;
+@mixin box-shadow($hoff,$voff,$brad,$srad,$color) {
+  -webkit-box-shadow: $hoff $voff $brad $srad $color;
+  -moz-box-shadow: $hoff $voff $brad $srad $color;
+  box-shadow: $hoff $voff $brad $srad $color;
+}
+
+// Linear Gradient
+@mixin linear-grad($pos,$grad1,$grad2) {
+  background-color: $grad1; // Fallback Color
+  //background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from($grad2), to($grad1)); // Safari 4+, Chrome 1-9
+  background-image: -webkit-linear-gradient($pos, $grad2, $grad1); // Safari 5.1+, Mobile Safari, Chrome 10+
+  background-image: -moz-linear-gradient($pos, $grad2, $grad1); // Firefox 3.6+
+  background-image: -ms-linear-gradient($pos, $grad2, $grad1); // IE 10+
+  background-image: -o-linear-gradient($pos, $grad2, $grad1);
+  // IMPORTANT - include a background image of the desired gradient as a fall back.
+}
+
+// Transition
+@mixin transition($property) {
+    @include transition-property($property);
+    @include transition-duration(.5s);
+}
+

@@ -18,8 +18,6 @@ gem 'simple_form'
 gem 'slim-rails'
 gem 'uglifier'
 
-# Style
-gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass', branch: 'v1.0beta'
 
 group :development do
   gem 'guard'

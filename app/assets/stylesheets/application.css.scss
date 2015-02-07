@@ -5,5 +5,24 @@
 */
 
 
-// Semantic UI
-@import "semantic-ui";
+// Utilities
+@import "foundation";
+@import "breakpoints";
+@import "mixins";
+@import "visible";
+
+
+// Layout
+ 	body {
+ 		background: #FFF;
+ 		color: #2C1B17;
+ 		font-family: 'Signika', sans-serif;
+ 		font-size: 1em;
+ 		line-height: 1.4;
+ 	}
+
+ 	header {
+ 		height: 40px;
+ 		margin: 32px 0;
+ 		width: 100%;
+ 	}

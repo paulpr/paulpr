@@ -10,12 +10,19 @@
   <%= favicon_link_tag 'favicon.ico' %>
   <%= csrf_meta_tags %>
 
+  <link href='http://fonts.googleapis.com/css?family=Signika:400,700,300' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
 
 </head>
 <body>
 
-<%= yield %>
-<%= javascript_include_tag 'application' %>
+	<header>
+		<a class="logo-paul-request" href="/">Paul Request</a>
+	</header>
+
+	<%= yield %>
+
+	<%= javascript_include_tag 'application' %>
+
 </body>
 </html>

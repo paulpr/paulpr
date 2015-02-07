@@ -1,0 +1,48 @@
+/*
+* Travel Door County
+* Copyright Ace Eight of Spades 2014
+* traveldoor.co
+*/
+
+
+// ----------
+// Break Points
+@mixin breakpoint($point) {
+  // l-seven, Larger than Standard 960
+  @if $point == l-seven {
+    @media (min-width: 1200px) { @content; }
+  }
+  // l-six, Smaller than Standard 960
+  @if $point == l-six {
+    @media (max-width: 959px) {
+      @content;
+      @-ms-viewport { width: 960px; }
+    }
+  }
+  // l-five, Larger than Tablet Portrait Size
+  @if $point == l-five {
+    @media (min-width: 768px) { @content; }
+  }
+  // l-four, Tablet Portrait Size to Standard 960
+  @if $point == l-four {
+    @media (min-width: 768px) and (max-width: 959px) {
+      @content;
+      @-ms-viewport { width: 768px; }
+    }
+  }
+  // l-three, All Mobile Sizes
+  @if $point == l-three {
+    @media (max-width: 767px) { @content; }
+  }
+  // l-two, Mobile Landscape Size to Tablet Portrait
+  @if $point == l-two {
+    @media (min-width: 480px) and (max-width: 767px) {
+      @content;
+      @-ms-viewport { width: 480px; }
+    }
+  }
+  // l-one, Mobile Portrait Size to Mobile Landscape Size
+  @if $point == l-one {
+    @media (max-width: 479px) { @content; }
+  }
+}

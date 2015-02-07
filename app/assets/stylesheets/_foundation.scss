@@ -1,0 +1,76 @@
+/*
+* Paul Request
+* Copyright Paul Request 2015
+* paulrequest.co
+*/
+
+
+// ----------
+//  Responsive Fluid Grid
+
+.container {
+  margin: 48px 0 48px 2%;
+  overflow: visible !important;
+  position: relative;
+  width: 98%;
+  z-index: 9001;
+  @extend %clear;
+  .row {
+    margin: 0 0 20px 0;
+    width: 100%;
+    @extend %clear;
+  }
+  .col {
+    float: left;
+    height: 100%;
+    margin-right: 2%;
+    width: 10.5%;
+  }
+}
+
+
+// ----------
+// Base Grid
+.container .col.one                   { width: 6.333%; }
+.container .col.two                   { width: 14.666%; }
+.container .col.three                 { width: 23%; }
+.container .col.four                  { width: 31.333%; }
+.container .col.five                  { width: 39.666%; }
+.container .col.six                   { width: 48%; }
+.container .col.seven                 { width: 56.333%; }
+.container .col.eight                 { width: 64.666%; }
+.container .col.nine                  { width: 73%; }
+.container .col.ten                   { width: 81.333%; }
+.container .col.eleven                { width: 89.666%; }
+.container .col.twelve                { width: 98%; }
+
+.container .col.off-one               { margin-left: 8.333%; }
+.container .col.off-two               { margin-left: 16.666%; }
+.container .col.off-three             { margin-left: 25%; }
+.container .col.off-four              { margin-left: 33.333%; }
+.container .col.off-five              { margin-left: 41.666%; }
+.container .col.off-six               { margin-left: 50%; }
+.container .col.off-seven             { margin-left: 58.333%; }
+.container .col.off-eight             { margin-left: 66.666%; }
+.container .col.off-nine              { margin-left: 75%; }
+.container .col.off-ten               { margin-left: 83.333%; }
+.container .col.off-eleven            { margin-left: 91.666%; }
+
+
+// ----------
+// Mobile Grid
+@media only screen and (max-width: 767px) {
+  .container {
+    margin: 20px 4%;
+    width: 92%;
+  }
+  .container .col.one, .container .col.two,
+  .container .col.three, .container .col.four,
+  .container .col.five, .container .col.six,
+  .container .col.seven, .container .col.eight,
+  .container .col.nine, .container .col.ten,
+  .container .col.eleven, .container .col.twelve {
+    margin: 0;
+    width: 100%;
+  }
+}
