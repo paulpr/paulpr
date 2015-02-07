@@ -9,10 +9,10 @@
 //  Responsive Fluid Grid
 
 .container {
-  margin: 0 12%;
+  margin: 0 8%;
   overflow: visible !important;
   position: relative;
-  width: 76%;
+  width: 84%;
   z-index: 9001;
   @extend %clear;
   .row {

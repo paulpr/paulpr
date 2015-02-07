@@ -28,6 +28,7 @@ header {
 	height: 40px;
 	margin: 32px 0;
 	width: 100%;
+	@include breakpoint(l-three) { margin: 16px 0 }
 	a.logo-paul-request {
 		color: #2D1C17;
 		font-size: 2em;
@@ -43,6 +44,7 @@ header {
 		height: 38px;
 		line-height: 38px;
 		padding: 0 20px;
+		@include breakpoint(l-three) { display: none; visibility: hidden; }
 		&:hover {
 			border: 2px solid #CC4A4F;
 			color: #CC4A4F;
@@ -50,13 +52,39 @@ header {
 	}
 }
 
+
 section.highlight {
 	margin: 120px 0;
+	@include breakpoint(l-three) { margin: 20px 0; }
+	img { max-width: 200px; }
 	h1 {
 		font-size: 2.6em;
 		font-weight: 300;
 		line-height: 1.2;
 		margin: 40px 0 20px 0;
+		@include breakpoint(l-four) { font-size: 2em; }
+		@include breakpoint(l-three) {
+			font-size: 1.6em;
+			margin: 32px 0 12px 0; 
+		}
 	}
 	p { color: #CC4A4F; }
+	a.github-login {
+		border: 2px solid #2D1C17;
+		border-radius: 4px;
+		color: #2D1C17;
+		display: none;
+		height: 38px;
+		line-height: 38px;
+		margin: 32px 0;
+		max-width: 240px;
+		text-align: center;
+		visibility: hidden;
+		width: 100%;
+		@include breakpoint(l-three) { display: inline; visibility: visible; }
+		&:hover {
+			border: 2px solid #CC4A4F;
+			color: #CC4A4F;
+		}
+	}
 }
