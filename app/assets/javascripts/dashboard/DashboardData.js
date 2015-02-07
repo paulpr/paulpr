@@ -1,11 +1,24 @@
 var React = require('react');
+var ReactD3 = require('react-d3');
 
 class DashboardData extends React.Component {
 	render() {
 		return (
-			<div>DashboardData</div>
+			<div>
+			  <div>DashboardData</div>
+			  <div><PullRequestTimeline/></div>
+      </div>
 		);
 	}
 }
 
-module.exports = DashboardData;
+class PullRequestTimeline extends React.Component{
+  render()
+  {
+    return (
+        <div>TimeLine</div>
+        )
+  }
+}
+
+export default DashboardData;
