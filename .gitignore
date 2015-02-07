@@ -13,3 +13,4 @@
 /tmp
 .powenv
 /node_modules
+.ruby-version

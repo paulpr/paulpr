@@ -4,4 +4,6 @@ Rails.application.routes.draw do
 
   # Auth
   get '/auth/:provider/callback', to: 'sessions#create'
+
+  root to: 'pages#home'
 end
