@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "watch": "watchify app/assets/javascripts/application.js -t 6to5ify --im -o public/build.js --debug",
-    "start": "npm run watch & instant 8000",
+    "dev": "npm run watch & instant 8000",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
