@@ -6,5 +6,9 @@ Rails.application.routes.draw do
   # Auth
   get '/auth/:provider/callback', to: 'sessions#create'
 
+
+
+  resource :github_webhooks, only: :create, defaults: { formats: :json }
+
   root to: 'pages#home'
 end
