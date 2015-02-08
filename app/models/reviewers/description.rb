@@ -3,7 +3,7 @@ module Reviewers
     attr_accessor :client, :errors, :pr_id
 
     def initialize(pr_id)
-      @client = Github.new(login: 'paulrequest', password: 's5v0H5Zwl1HU4zOU')
+      @client = Hub.get_pauls_client
       @pr_id = pr_id
       @errors = []
     end

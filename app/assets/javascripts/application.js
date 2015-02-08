@@ -11,6 +11,10 @@
 // about supported directives.
 //
 
+//= require jquery
+//= require jquery_ujs
+
+
 var React = require('react');
 var DashboardData = require('./dashboard/DashboardData');
 
