@@ -34,7 +34,7 @@ module Paulpr
     # Generators
     config.generators do |g|
       g.template_engine :slim
-      g.helpers false
+      g.helper false
       g.views false
       g.javascripts false
       g.stylesheets false
