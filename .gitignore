@@ -13,6 +13,7 @@
 /tmp
 .powenv
 .ruby-version
+/node_modules
 
 .DS_Store
 /public/build.js
