@@ -3,8 +3,7 @@ Rails.application.routes.draw do
   get '/dashboard', to: 'dashboards#index'
   get '/dashboard/styleguide', to: 'dashboards#styleguide'
 
-  # Auth
-  get '/auth/:provider/callback', to: 'sessions#create'
-
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+  
   root to: 'pages#home'
 end
