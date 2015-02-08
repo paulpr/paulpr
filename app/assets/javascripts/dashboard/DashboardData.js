@@ -35,11 +35,19 @@ export default class DashboardData extends React.Component {
 	render() {
 		return (
 			<div>
-				<PullRequestCounter count={0}/>
-				<PullRequestTimeline data={data} />
-				<div style={{ width: 600 }}>
-					<TopRuleBreakers style={{ width: '100%' }} />
-					<TopRulesBroken style={{ width: '100%' }} />
+				<div className="row">
+					<div classNameName="col twelve">
+						<PullRequestCounter count={0}/>
+						<PullRequestTimeline data={data} />
+					</div>
+				</div>
+				<div className="row">
+					<div className="col six">
+						<TopRuleBreakers style={{ width: '100%' }} />
+					</div>
+					<div className="col six">
+						<TopRulesBroken style={{ width: '100%' }} />
+					</div>
 				</div>
 			</div>
 		);

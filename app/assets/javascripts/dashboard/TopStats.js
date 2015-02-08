@@ -35,9 +35,9 @@ export class TopRuleBreakers extends React.Component {
 		var data = [
 			['Chris Campbell', 13],
 			['Chris Schmitz', 105],
-			['Justin Siedl', 53],
+			['Justin Seidl', 53],
 			['Ross Larson', 89],
-			['scott c', 23]
+			['Scott C', 23]
 		].sort((a, b) => b[1] - a[1]);
 		return <DataTable data={data} title="Rule Breakers" {...this.props} />;
 	}

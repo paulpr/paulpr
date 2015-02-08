@@ -15,7 +15,7 @@ export default class PullRequestTimeline extends React.Component{
 			textAlign: 'center',
 			padding: 10,
 			boxShadow: 'inset 0 0 5px rgba(0,0,0,0.2)',
-			width: 600,
+			width: 940,
 			backgroundColor: '#fffbe2'
 		};
 		var blockStyle = function(color) {
@@ -39,7 +39,7 @@ export default class PullRequestTimeline extends React.Component{
 		return (
 			<div>
 				<h2>Pull Requests vs Issues Found</h2>
-				<Line ref="lineChart" data={this.props.data} options={options} width="600" height="200" />
+				<Line ref="lineChart" data={this.props.data} options={options} width="940" height="240" />
 				<div style={legendContainerStyle}>{legend}</div>
 			</div>
 		);

@@ -53,6 +53,7 @@ header {
 }
 
 
+// Home Page
 section.highlight {
 	margin: 120px 0;
 	@include breakpoint(l-three) { margin: 20px 0; }
@@ -88,3 +89,9 @@ section.highlight {
 		}
 	}
 }
+
+
+// Dashboard
+.container.dashboard { margin: 0 8% 60px 8%; }
+.counter { float: right; margin-right: 40px; }
+table caption h3 { text-align: left; }

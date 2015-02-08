@@ -20,7 +20,7 @@ export default class PullRequestCounter extends React.Component{
 
 	render(){
 		return (
-			<div>
+			<div className="counter">
 				Paul has caught {this.state.count}
 			</div>
 		)
