@@ -18,7 +18,7 @@ var data = {
 			data: [28, 29, 24, 19, 54, 18, 21, 26, 24]
 		},
 		{
-			label: "Comments by Paul",
+			label: "Issues Found",
 			fillColor: "rgba(220,10,10,0.2)",
 			strokeColor: "rgba(220,10,10,1)",
 			pointColor: "rgba(220,10,10,1)",

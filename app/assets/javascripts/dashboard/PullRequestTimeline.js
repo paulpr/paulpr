@@ -38,7 +38,7 @@ export default class PullRequestTimeline extends React.Component{
 		});
 		return (
 			<div>
-				<h2>Pull Requests vs Issues</h2>
+				<h2>Pull Requests vs Issues Found</h2>
 				<Line ref="lineChart" data={this.props.data} options={options} width="600" height="200" />
 				<div style={legendContainerStyle}>{legend}</div>
 			</div>
