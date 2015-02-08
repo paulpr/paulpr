@@ -1,5 +1,5 @@
-import React from 'react'
-import {Line} from 'react-chartjs'
+import React from 'react';
+import {Line} from 'react-chartjs';
 
 var data = {
   labels: ["January", "February", "March", "April", "May", "June", "July"],
@@ -32,21 +32,24 @@ export default class DashboardData extends React.Component {
 	render() {
 		return (
 			<div>
-			  <div>DashboardData</div>
-			  <div><PullRequestTimeline/></div>
-			  <div><PullRequestCounter count={0}/></div>
-      </div>
+				<div>DashboardData</div>
+				<PullRequestTimeline data={data} />
+				<PullRequestCounter count={0}/>
+			</div>
 		);
 	}
 }
 
 class PullRequestTimeline extends React.Component{
-  render()
-  {
-    return (
-        <div><Line  data={data} width="600" height="250"/></div>
-        )
-  }
+	componentDidMount() {
+		this.refs.lineChart.generateLegend();
+	}
+	render() {
+		var options = { legendTemplate : "<div>test</div>" };
+		return (
+			<Line ref="lineChart" data={this.props.data} options={options} width="600" height="250"/>
+		);
+	}
 }
 
 class PullRequestCounter extends React.Component{
