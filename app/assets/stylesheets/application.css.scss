@@ -96,3 +96,20 @@ section.highlight {
 .counter { float: right; margin-right: 40px; }
 table caption h3 { text-align: left; }
 
+
+// Repositories
+.repo {
+	border-bottom: 1px solid #DDD;
+	padding: 10px 0;
+	.repo-title {
+		font-size: 1em;
+		font-weight: 700;
+		text-transform: uppercase;
+		a { color: #CC4A4F; }
+	}
+	p { 
+		color: #2D1C17;
+		font-size: 0.9em;
+		margin: 0;
+	}
+}
