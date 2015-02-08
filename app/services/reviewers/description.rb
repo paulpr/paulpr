@@ -28,7 +28,11 @@ module Reviewers
     end
 
     def comment_for_errors
-      @client.issues.comments.create(user_name, repo_name, issue_id, body: "You don't have a description!")
+      @client.issues.comments.create(user_name, repo_name, issue_id, body: message)
+    end
+
+    def message
+      "You don't have a description!"
     end
 
     def user_name
