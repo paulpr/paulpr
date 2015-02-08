@@ -12,7 +12,6 @@
 !/log/.keep
 /tmp
 .powenv
-/node_modules
 .ruby-version
 
 .DS_Store
