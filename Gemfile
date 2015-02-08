@@ -19,7 +19,6 @@ gem 'simple_form'
 gem 'slim-rails'
 gem 'uglifier'
 
-
 group :development do
   gem 'guard'
   gem 'guard-bundler', require: false
