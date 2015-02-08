@@ -4,7 +4,12 @@
 	  	<h3><%= current_user.name %>'s Repositories</h3>
 		  <% @repos.each do |repo| %>
 				<div class="repo private-<%= repo.private %>">
-					<%= link_to('Activate', activate_repo_path(repo.id), class: 'btn-activate') %>
+					<% repository = Repo.where(owner: repo.owner.login, repo: repo.name).first %>
+					<% if repository.present? %>
+						<%= link_to('Deactivate', deactivate_repo_path(repository.id), class: 'btn-activate', method: :delete) %>
+					<% else %>
+						<%= link_to('Activate', activate_repos_path(owner: repo.owner.login, repo: repo.name), class: 'btn-activate') %>
+					<% end %>
 				  <div class="repo-title"><%= link_to(repo.full_name, dashboard_path) %></div>
 				  <p><%= repo.description %></p>
 				</div>

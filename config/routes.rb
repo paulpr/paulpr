@@ -3,10 +3,10 @@ Rails.application.routes.draw do
   get '/about', to: 'pages#about'
   get '/dashboard', to: 'dashboards#index'
   get '/dashboard/styleguide', to: 'dashboards#styleguide'
-  get '/repos', to: 'dashboards#repos'
 
   resources :repos do
-    get 'activate', on: :member
+    get 'activate/:owner/:repo', on: :collection, to: 'repos#activate', as: :activate
+    delete 'deactivate', on: :member, to: 'repos#deactivate', as: :deactivate
   end
 
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
