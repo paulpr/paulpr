@@ -11,8 +11,6 @@
 // about supported directives.
 //
 
-window.Chart = require('chart.js');
-
 var React = require('react');
 var DashboardData = require('./dashboard/DashboardData');
 
