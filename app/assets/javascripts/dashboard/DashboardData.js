@@ -1,9 +1,10 @@
 import React from 'react';
 import PullRequestTimeline from './PullRequestTimeline';
 import PullRequestCounter from './PullRequestCounter';
+import {TopRuleBreakers, TopRulesBroken} from './TopStats';
 
 var data = {
-	labels: ["January", "February", "March", "April", "May", "June", "July"],
+	labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September"],
 	datasets: [
 		{
 			label: "Pull Requests",
@@ -14,7 +15,7 @@ var data = {
 			strokeWidth: 2,
 			pointHighlightFill: "#fff",
 			pointHighlightStroke: "rgba(100,100,100,1)",
-			data: [28, 29, 24, 19, 54, 18, 21]
+			data: [28, 29, 24, 19, 54, 18, 21, 26, 24]
 		},
 		{
 			label: "Comments by Paul",
@@ -24,7 +25,7 @@ var data = {
 			pointStrokeColor: "#fff",
 			pointHighlightFill: "#fff",
 			pointHighlightStroke: "rgba(220,10,10,1)",
-			data: [65, 59, 47, 31, 43, 13, 15]
+			data: [65, 59, 47, 31, 43, 13, 15, 31, 20]
 		}
 	]
 };
@@ -36,6 +37,10 @@ export default class DashboardData extends React.Component {
 			<div>
 				<PullRequestCounter count={0}/>
 				<PullRequestTimeline data={data} />
+				<div style={{ width: 600 }}>
+					<TopRuleBreakers style={{ width: '100%' }} />
+					<TopRulesBroken style={{ width: '100%' }} />
+				</div>
 			</div>
 		);
 	}
