@@ -1,0 +1,10 @@
+<div class="container">
+  <h1>Repos</h1>
+
+  <% @repos.each do |repo| %>
+    <div class="repo private-<%= repo.private %>">
+      <h2><%= link_to(repo.name, dashboard_path) %></h2>
+      <p><%= repo.description %></p>
+    </div>
+  <% end %>
+</div>
