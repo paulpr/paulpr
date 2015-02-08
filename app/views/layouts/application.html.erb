@@ -21,15 +21,12 @@
 			<a class="logo-paul-request" href="/">Paul Request</a>
 
 			<% if user_signed_in? %>
-				<%= link_to('Sign Out', destroy_user_session_path, class: 'github-login', id: 'desktop') %>
+				<%= link_to('Sign Out', destroy_user_session_path, class: 'github-login', id: 'desktop', method: :delete) %>
 			<% else %>
 				<%= link_to('Sign in with Github', user_omniauth_authorize_path(:github), class: 'github-login', id: 'desktop') %>
 			<% end %>
 		</div>
 	</header>
-
-	<%= notice %>
-	<%= alert %>
 
 	<%= yield %>
 
