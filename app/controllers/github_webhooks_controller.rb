@@ -5,17 +5,17 @@ class GithubWebhooksController < ActionController::Base
     # TODO: handle push webhook
     #logger.info("should do something with a push payload")# {payload}")
 
-  end	
+  end 
 
   def pull_request(payload)
 
-  	Reviewers::Description.new(payload['number']).review
+    Reviewers::Description.new(payload['number']).review
 
 
-  end	
+  end 
 
   def issue_comment(payload)
-  	
+    
 
   end
 
