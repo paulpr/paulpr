@@ -1,30 +1,33 @@
-import React from 'react'
-import {Line} from 'react-chartjs'
+import React from 'react';
+import PullRequestTimeline from './PullRequestTimeline';
+import PullRequestCounter from './PullRequestCounter';
+import {TopRuleBreakers, TopRulesBroken} from './TopStats';
 
 var data = {
-  labels: ["January", "February", "March", "April", "May", "June", "July"],
-  datasets: [
-    {
-      label: "My First dataset",
-      fillColor: "rgba(220,220,220,0.2)",
-      strokeColor: "rgba(220,220,220,1)",
-      pointColor: "rgba(220,220,220,1)",
-      pointStrokeColor: "#fff",
-      pointHighlightFill: "#fff",
-      pointHighlightStroke: "rgba(220,220,220,1)",
-      data: [65, 59, 80, 81, 56, 55, 40]
-    },
-    {
-      label: "My Second dataset",
-      fillColor: "rgba(151,187,205,0.2)",
-      strokeColor: "rgba(151,187,205,1)",
-      pointColor: "rgba(151,187,205,1)",
-      pointStrokeColor: "#fff",
-      pointHighlightFill: "#fff",
-      pointHighlightStroke: "rgba(151,187,205,1)",
-      data: [28, 48, 40, 19, 86, 27, 90]
-    }
-  ]
+	labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September"],
+	datasets: [
+		{
+			label: "Pull Requests",
+			fillColor: "rgba(100,100,100,0.4)",
+			strokeColor: "rgba(100,100,100,1)",
+			pointColor: "rgba(100,100,100,1)",
+			pointStrokeColor: "#fff",
+			strokeWidth: 2,
+			pointHighlightFill: "#fff",
+			pointHighlightStroke: "rgba(100,100,100,1)",
+			data: [28, 29, 24, 19, 54, 18, 21, 26, 24]
+		},
+		{
+			label: "Comments by Paul",
+			fillColor: "rgba(220,10,10,0.2)",
+			strokeColor: "rgba(220,10,10,1)",
+			pointColor: "rgba(220,10,10,1)",
+			pointStrokeColor: "#fff",
+			pointHighlightFill: "#fff",
+			pointHighlightStroke: "rgba(220,10,10,1)",
+			data: [65, 59, 47, 31, 43, 13, 15, 31, 20]
+		}
+	]
 };
 
 
@@ -32,48 +35,13 @@ export default class DashboardData extends React.Component {
 	render() {
 		return (
 			<div>
-			  <div>DashboardData</div>
-			  <div><PullRequestTimeline/></div>
-			  <div><PullRequestCounter count={0}/></div>
-      </div>
+				<PullRequestCounter count={0}/>
+				<PullRequestTimeline data={data} />
+				<div style={{ width: 600 }}>
+					<TopRuleBreakers style={{ width: '100%' }} />
+					<TopRulesBroken style={{ width: '100%' }} />
+				</div>
+			</div>
 		);
 	}
-}
-
-class PullRequestTimeline extends React.Component{
-  render()
-  {
-    return (
-        <div><Line  data={data} width="600" height="250"/></div>
-        )
-  }
-}
-
-class PullRequestCounter extends React.Component{
-  constructor(props) {
-    super(props);
-    this.state = {count: props.count};
-  }
-
-  componentDidMount(){
-    console.log(this);
-    var loop = ()=> {
-      setTimeout(()=> {
-            this.setState({count: this.state.count + 1});
-            loop();
-          }, Math.round(Math.random() * (5000)) + 200
-      );
-    };
-
-    loop();
-  }
-
-  render()
-  {
-    return (
-      <div>
-      Paul has caught {this.state.count}
-      </div>
-    )
-  }
 }

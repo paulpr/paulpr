@@ -12,8 +12,8 @@
 !/log/.keep
 /tmp
 .powenv
-/node_modules
 .ruby-version
+/node_modules
 
 .DS_Store
 /public/build.js
