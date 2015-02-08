@@ -4,8 +4,9 @@
 	  	<h3><%= current_user.name %>'s Repositories</h3>
 		  <% @repos.each do |repo| %>
 				<div class="repo private-<%= repo.private %>">
-				  <div class="repo-title"><%= link_to(repo.name, dashboard_path) %></div>
+				  <div class="repo-title"><%= link_to(repo.full_name, dashboard_path) %></div>
 				  <p><%= repo.description %></p>
+					<%= link_to('Activate', activate_repo_path(repo.id), class: 'button activate') %>
 				</div>
 		  <% end %>
 	  </div>

@@ -34,13 +34,5 @@ module Reviewers
     def message
       "You don't have a description!"
     end
-
-    def user_name
-      'paulpr'
-    end
-
-    def repo_name
-      'paulpr'
-    end
   end
 end
