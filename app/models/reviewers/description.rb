@@ -1,26 +1,42 @@
 module Reviewers
   class Description
-    attr_accessor :client
+    attr_accessor :client, :errors, :pr_id
 
-    def initialize
-      # establish connection
-      @client = Octokit::Client.new(access_token: '3cf0baccd31be2b70be6ac684c0c4292c0ca68ad')
+    def initialize(pr_id)
+      @client = Github.new(login: 'paulrequest', password: 's5v0H5Zwl1HU4zOU')
+      @pr_id = pr_id
+      @errors = []
     end
 
     def review
-      # validate_min_length(pull_request_info)
-      pull_request_info
+      analyze_body(pull_request.body)
+      comment_for_errors
     end
 
     protected
 
-    def pull_request_info
-      # API call to get the latest PR
-      puts @client.repo('paulpr/paulpr').rels[:pulls].inspect
+    def analyze_body(body)
+      @errors << 'You need a body...' unless body.size > 0
     end
 
-    def meets_min_length_requirement?
-      # Check the description length
+    def pull_request
+      @pr ||= @client.pull_requests.get(user_name, repo_name, @pr_id).body
+    end
+
+    def issue_id
+      pull_request.issue_url.last
+    end
+
+    def comment_for_errors
+      @client.issues.comments.create(user_name, repo_name, issue_id, body: "You don't have a description!")
+    end
+
+    def user_name
+      'paulpr'
+    end
+
+    def repo_name
+      'paulpr'
     end
   end
 end
