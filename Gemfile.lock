@@ -98,6 +98,8 @@ GEM
       multi_json (>= 1.7.5, < 2.0)
       nokogiri (~> 1.6.3)
       oauth2
+    github_webhook (0.2.0)
+      activesupport (~> 4)
     globalid (0.3.2)
       activesupport (>= 4.1.0)
     guard (2.11.1)
@@ -325,6 +327,7 @@ DEPENDENCIES
   flutie
   foundation-rails
   github_api (~> 0.12.2)
+  github_webhook
   guard
   guard-bundler
   guard-livereload
