@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   # Dashboards
+  get '/about', to: 'pages#about'
   get '/dashboard', to: 'dashboards#index'
   get '/dashboard/styleguide', to: 'dashboards#styleguide'
   get '/repos', to: 'dashboards#repos'
