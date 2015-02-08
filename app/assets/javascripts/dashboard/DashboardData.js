@@ -2,6 +2,7 @@ import React from 'react';
 import PullRequestTimeline from './PullRequestTimeline';
 import PullRequestCounter from './PullRequestCounter';
 import {TopRuleBreakers, TopRulesBroken} from './TopStats';
+import TotalTimeSaved from './TotalTimeSaved';
 
 var data = {
 	labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September"],
@@ -30,17 +31,19 @@ var data = {
 	]
 };
 
+var counterData = Math.round(Math.random() * 1000);
 
 export default class DashboardData extends React.Component {
 	render() {
 		return (
 			<div>
-				<PullRequestCounter count={0}/>
+				<PullRequestCounter count={counterData}/>
 				<PullRequestTimeline data={data} />
 				<div style={{ width: 600 }}>
 					<TopRuleBreakers style={{ width: '100%' }} />
 					<TopRulesBroken style={{ width: '100%' }} />
 				</div>
+        <TotalTimeSaved/>
 			</div>
 		);
 	}

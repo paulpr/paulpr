@@ -21,7 +21,7 @@ export default class PullRequestCounter extends React.Component{
 	render(){
 		return (
 			<div>
-				Paul has caught {this.state.count}
+				Paul has facilitated {this.state.count} pull requests
 			</div>
 		)
 	}
